@@ -1,3 +1,13 @@
+"""
+LSTM-CNN Text Classification
+
+This script builds a binary text classification model using:
+Embedding + CNN + LSTM in Keras.
+
+Author: Zahra Tavakolirad
+"""
+
+
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -76,6 +86,7 @@ test_sequences_matrix = sequence.pad_sequences(test_sequences,maxlen=max_len)
 
 
 accr = model.evaluate(test_sequences_matrix,Y_test)
+
 
 
 print('Test set\n  Loss: {:0.3f}\n  Accuracy: {:0.3f}'.format(accr[0],accr[1]))
