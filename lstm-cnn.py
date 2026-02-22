@@ -24,6 +24,14 @@ from keras.models import Sequential
 from keras.layers import LSTM
 from keras.layers import Conv1D, MaxPooling1D
 
+# --- Load dataset (example) ---
+# Expected columns: v1 = label, v2 = text
+# Put your dataset file next to this script and update the filename if needed.
+df = pd.read_csv("data.csv", encoding="utf-8")
+
+# If your CSV has different column names, rename them like this:
+# df = df.rename(columns={"label_column": "v1", "text_column": "v2"})
+
 X = df.v2
 Y = df.v1
 le = LabelEncoder()
@@ -90,3 +98,4 @@ accr = model.evaluate(test_sequences_matrix,Y_test)
 
 
 print('Test set\n  Loss: {:0.3f}\n  Accuracy: {:0.3f}'.format(accr[0],accr[1]))
+
